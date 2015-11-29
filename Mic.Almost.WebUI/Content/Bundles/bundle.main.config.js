@@ -1,6 +1,6 @@
 module.exports = {
     bundle: {
-        main: {
+        "main-scripts": {
             scripts: [
                 './Content/App/app.js',
                 './Content/App/app.config.js',
@@ -18,7 +18,18 @@ module.exports = {
             options: {
                 useMin: false,
                 uglify: false,
-                rev: false,
+                rev: true,
+                maps: true
+            }
+        },
+        "main-styles": {
+            styles: [
+                './Content/Css/style.css'
+            ],
+            options: {
+                useMin: true,
+                uglify: true,
+                rev: true,
                 maps: true
             }
         }

@@ -211,3 +211,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 Mic.Almost.WebUI/bower_components/
+Mic.Almost.WebUI/Content/Bundles/fonts/
+Mic.Almost.WebUI/Content/Bundles/assets/
+Mic.Almost.WebUI/Content/Bundles/vendor.json
+Mic.Almost.WebUI/Content/Bundles/styles.json

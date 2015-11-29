@@ -180,10 +180,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Bundles\bundle.main.config.js" />
+    <Content Include="Content\Bundles\bundle.vendor.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Css\style.css" />
     <Content Include="bower.json" />
+    <Content Include="gulpfile.js" />
     <Content Include="package.json" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

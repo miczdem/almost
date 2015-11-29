@@ -9,24 +9,25 @@ namespace Mic.Almost.WebUI
         public static void RegisterBundles(BundleCollection bundles)
         {
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                       "~/bower_components/jquery/dist/jquery.js"));
+            bundles.Add(new StyleBundle("~/bundles/styles").Include(
+                    "~/Content/Bundles/assets/vendor-styles*",
+                    "~/Content/Bundles/assets/main-styles*"
+                ));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/bower_components/jquery-validation/dist/jquery.validate.js"));
+            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
+                    "~/Content/Bundles/assets/vendor-scripts*",
+                    "~/Content/Bundles/assets/main-scripts*"
+                ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/bower_components/modernizr/modernizr.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/dist/js/bootstrap.js",
-                      "~/bower_components/respondc/dest/respond.src.js"));
+            BundleTable.EnableOptimizations = false;
+            
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/bower_components/bootstrap/dist/css/bootstrap.css",
-                      "~/Content/Css/style.css"));
+
         }
     }
 }

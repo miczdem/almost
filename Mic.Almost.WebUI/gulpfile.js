@@ -1,4 +1,4 @@
-﻿/// <vs BeforeBuild='less, bundle' SolutionOpened='dev:watch, install' />
+﻿/// <binding BeforeBuild='bundle' />
 var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
 var watch = require('gulp-watch');
@@ -11,7 +11,8 @@ var paths = {
     bower: './bower_components/',
     app: './Content/App/',
     images: './Content/Images/',
-    bundleRoot: './Content/Bundles/'
+    bundleRoot: './Content/Bundles/',
+    bundleCleanRoot: './Content/Bundles/assets'
 };
 
 gulp.task('install', function () {
@@ -26,42 +27,16 @@ gulp.task('less', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(paths.bundleRoot, { read: false })
+    return gulp.src(paths.bundleCleanRoot, { read: false })
     .pipe(rimraf());
 });
 
 gulp.task('bundle', function () {
-    return runSequence('install', 'clean', 'bundle:main:scripts', 'bundle:main:styles', 'bundle:main:copy', 'bundle:vendor', 'bundle:copy');
+    return runSequence('install', 'clean', 'bundle:main', 'bundle:vendor');
 });
 
-gulp.task('dev:watch', function () {
-    watch('./Content/Css/**/*.less', function () {
-        runSequence('less', 'bundle:main:styles');
-    });
-    watch('./Content/App/**/*.js', function () {
-        runSequence('bundle:main:scripts');
-    });
-    watch('./Content/App/**/*.html', function () {
-        runSequence('bundle:main:copy');
-    });
-});
-
-gulp.task('bundle:main:scripts', function () {
-    return gulp.src('./Content/Bundles/bundle.main.scripts.config.js')
-        .pipe(bundle())
-        .pipe(bundle.results({ dest: paths.bundleRoot, fileName: 'scripts' }))
-        .pipe(gulp.dest(paths.bundleRoot + 'assets'));
-});
-
-gulp.task('bundle:main:copy', function () {
-    return gulp.src('./Content/Bundles/bundle.main.copy.config.js')
-        .pipe(bundle())
-        .pipe(bundle.results({ dest: paths.bundleRoot, fileName: 'main.copy' }))
-        .pipe(gulp.dest(paths.bundleRoot));
-});
-
-gulp.task('bundle:main:styles', function () {
-    return gulp.src('./Content/Bundles/bundle.main.styles.config.js')
+gulp.task('bundle:main', function () {
+    return gulp.src('./Content/Bundles/bundle.main.config.js')
         .pipe(bundle())
         .pipe(bundle.results({ dest: paths.bundleRoot, fileName: 'styles' }))
         .pipe(gulp.dest(paths.bundleRoot + 'assets'));
@@ -73,13 +48,5 @@ gulp.task('bundle:vendor', function () {
         .pipe(bundle.results({ dest: paths.bundleRoot, fileName: 'vendor' }))
         .pipe(gulp.dest(paths.bundleRoot + 'assets'));
 });
-
-gulp.task('bundle:copy', function () {
-    return gulp.src('./Content/Bundles/bundle.copy.config.js')
-        .pipe(bundle())
-        .pipe(bundle.results({ dest: paths.bundleRoot, fileName: 'copy' }))
-        .pipe(gulp.dest(paths.bundleRoot));
-});
-
 
 
