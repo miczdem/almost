@@ -26,7 +26,7 @@ namespace Mic.Almost.WebUI
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/bower_components/bootstrap/dist/css/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Css/style.css"));
         }
     }
 }
