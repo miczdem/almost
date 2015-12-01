@@ -1,11 +1,12 @@
 ﻿using System;
+using IdentityManager;
+using IdentityManager.Configuration;
+using Mic.Almost.Auth;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using Mic.Almost.WebUI.Models;
 
 namespace Mic.Almost.WebUI
 {
@@ -63,6 +64,22 @@ namespace Mic.Almost.WebUI
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            app.Map("/idm", idm =>
+            {
+                var factory = new IdentityManagerServiceFactory();
+                factory.IdentityManagerService = new Registration<IIdentityManagerService, ApplicationIdentityManagerService>();
+                factory.Register(new Registration<ApplicationUserManager>());
+                factory.Register(new Registration<ApplicationUserStore>());
+                factory.Register(new Registration<ApplicationRoleManager>());
+                factory.Register(new Registration<ApplicationRoleStore>());
+                factory.Register(new Registration<ApplicationDbContext>());
+
+                idm.UseIdentityManager(new IdentityManagerOptions
+                {
+                    Factory = factory
+                });
+            });
         }
     }
 }
