@@ -184,7 +184,7 @@
     <Content Include="Content\Bundles\bundle.vendor.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Css\style.css" />
+    <None Include="Content\Css\style.less" />
     <Content Include="bower.json" />
     <Content Include="gulpfile.js" />
     <Content Include="package.json" />

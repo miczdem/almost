@@ -27,18 +27,7 @@ module.exports = {
             }
         },
         "vendor-styles": {
-            styles: [
-                {
-                    src: './bower_components/bootstrap/dist/css/bootstrap.css',
-                    minSrc: './bower_components/bootstrap/dist/css/bootstrap.min.css'
-                }
-            ],
-            options: {
-                useMin: true,
-                uglify: false,
-                rev: true,
-                maps: true
-            }
+         
         }
     },
     copy: [

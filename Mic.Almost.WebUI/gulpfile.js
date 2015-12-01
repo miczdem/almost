@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='bundle' />
+﻿/// <binding BeforeBuild='bundle' ProjectOpened='dev:watch' />
 var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
 var watch = require('gulp-watch');
@@ -18,6 +18,12 @@ var paths = {
 gulp.task('install', function () {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(install());
+});
+
+gulp.task('dev:watch', function () {
+    watch('./Content/Css/**/*.less', function () {
+        runSequence('less', 'bundle:main');
+    });
 });
 
 gulp.task('less', function () {
