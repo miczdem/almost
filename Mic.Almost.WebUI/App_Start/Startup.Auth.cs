@@ -2,6 +2,7 @@
 using IdentityManager;
 using IdentityManager.Configuration;
 using Mic.Almost.Auth;
+using Mic.Almost.Domain;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

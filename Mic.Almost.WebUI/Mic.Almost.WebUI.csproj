@@ -242,6 +242,10 @@
       <Project>{e483c783-5e7b-4254-936b-f8306d71081c}</Project>
       <Name>Mic.Almost.Auth</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mic.Almost.Domain\Mic.Almost.Domain.csproj">
+      <Project>{213c4f10-ef1b-40af-8fcf-f480f58f42c3}</Project>
+      <Name>Mic.Almost.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

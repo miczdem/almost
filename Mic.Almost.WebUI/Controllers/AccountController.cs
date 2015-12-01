@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Mic.Almost.Auth;
+using Mic.Almost.Domain;
 using Mic.Almost.WebUI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
