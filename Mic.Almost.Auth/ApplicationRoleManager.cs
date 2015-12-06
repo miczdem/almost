@@ -1,6 +1,5 @@
 using Mic.Almost.Domain;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Mic.Almost.Auth
 {

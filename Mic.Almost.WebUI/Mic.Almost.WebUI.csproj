@@ -44,6 +44,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.Owin.3.1.0\lib\net45\Autofac.Integration.Mvc.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.3.1.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="IdentityManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IdentityManager.1.0.0-beta5-5\lib\net45\IdentityManager.dll</HintPath>
       <Private>True</Private>
@@ -171,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\IoC.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -241,6 +258,14 @@
     <ProjectReference Include="..\Mic.Almost.Auth\Mic.Almost.Auth.csproj">
       <Project>{e483c783-5e7b-4254-936b-f8306d71081c}</Project>
       <Name>Mic.Almost.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mic.Almost.BusinessInterfaces\Mic.Almost.BusinessInterfaces.csproj">
+      <Project>{060BB995-7E6E-4EC7-9345-4013537FD5A4}</Project>
+      <Name>Mic.Almost.BusinessInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mic.Almost.DependencyInjection\Mic.Almost.DependencyInjection.csproj">
+      <Project>{acd0ee1e-4f2f-4beb-a2de-090e2e21ad2d}</Project>
+      <Name>Mic.Almost.DependencyInjection</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mic.Almost.Domain\Mic.Almost.Domain.csproj">
       <Project>{213c4f10-ef1b-40af-8fcf-f480f58f42c3}</Project>
