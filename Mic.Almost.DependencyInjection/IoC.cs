@@ -11,8 +11,8 @@ namespace Mic.Almost.DependencyInjection
     {
         public static void Register(ContainerBuilder builder)
         {
+            builder.RegisterType<AlmostRepository>().As<IAlmostRepository>().InstancePerRequest();
             builder.RegisterType<CustomerManager>().As<ICustomerManager>();
-            builder.RegisterType<AlmostRepository>().As<IAlmostRepository>();
         }
     }
 }
